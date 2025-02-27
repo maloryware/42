@@ -7,7 +7,7 @@ In UNIX, file/folder permissions are defined by a string of 10 characters, divid
 - The first field defines the type of object (file/directory/hard link/symlink);
 - Fields 2, 3, 4 determine the Read, Write, and Execute permissions for the User (u);
 - Fields 5, 6, 7 determine the Read, Write, and Execute permissions for the Group (g) to which the user belongs;
-- Fields 2, 3, 4 determine the Read, Write, and Execute permissions for every Other (o) user.
+- Fields 8, 9, 10 determine the Read, Write, and Execute permissions for every Other (o) user.
 This provides an easy to memorize mnemonic of `ugo` (like **Hugo**, the name!)
 
 The permission fields can be manipulated with `chmod`, where we pass one or more of `ugo` (or `a`, for all), followed by a plus (add), minus (remove), or equal (set) sign, followed by the permission we want to modify.
@@ -15,5 +15,10 @@ The permission fields can be manipulated with `chmod`, where we pass one or more
 As such, to change the permissions of the user (`u`) so that they can execute (`x`) the file, we would run `chmod u+x filename`.
 
 Editing the date can be done with the `touch` command, through either the `-d` or `-t` flags.
+
+
+
+
+Note: As the defined date exceeds 6 months on either side, instead of the hour, the year is displayed!
 
 stub
