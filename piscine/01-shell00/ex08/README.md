@@ -1,0 +1,1 @@
+The goal of this exercise is to combine two different tasks in one single command, without resorting to ; or &&. A neat workaround was to use the find command's built in -o flag, which allows for an OR operation, and to provide specific instructions for each listed query. Again, it's a matter of scouring the manual.
