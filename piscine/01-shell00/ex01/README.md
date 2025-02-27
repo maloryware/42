@@ -10,6 +10,10 @@ In UNIX, file/folder permissions are defined by a string of 10 characters, divid
 - Fields 2, 3, 4 determine the Read, Write, and Execute permissions for every Other (o) user.
 This provides an easy to memorize mnemonic of `ugo` (like **Hugo**, the name!)
 
-The permission fields can be manipulated with `chmod`, where we pass one or more of `ugo` (or `a`, for all), followed by a plus (add), minus (remove), or equal (set) sign
+The permission fields can be manipulated with `chmod`, where we pass one or more of `ugo` (or `a`, for all), followed by a plus (add), minus (remove), or equal (set) sign, followed by the permission we want to modify.
+
+As such, to change the permissions of the user (`u`) so that they can execute (`x`) the file, we would run `chmod u+x filename`.
+
+Editing the date can be done with the `touch` command, through either the `-d` or `-t` flags.
 
 stub
