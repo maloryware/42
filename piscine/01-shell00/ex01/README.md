@@ -14,11 +14,14 @@ The permission fields can be manipulated with `chmod`, where we pass one or more
 
 As such, to change the permissions of the user (`u`) so that they can execute (`x`) the file, we would run `chmod u+x filename`.
 
-Editing the date can be done with the `touch` command, through either the `-d` or `-t` flags.
+Editing the date can be done with the `touch` command, through either the `-d` (date) or `-t` (timestamp) flags. I used `-t 0601XXXX`, where the mandatory arguments are MM|DD|HH|MM.    
+
+Then comes **object links**, which are the `l`s on the first permission field, and the number shown immediately after. 
+Files can be linked together so as to behave as shortcuts for one another, or to share the same information between multiple locations and filenames. The **hard link count** of a file/folder is usually 1 for files and 2 for folders.
+
+`test3` and `test5` are linked together, accomplished through the `ln` command. `test6` is a symlink of `test0`, thus the `l` in its first permissions field.
 
 
+Note: As the defined date exceeds 6 months on either side, instead of the hour, the year is displayed instead!
 
 
-Note: As the defined date exceeds 6 months on either side, instead of the hour, the year is displayed!
-
-stub
