@@ -19,4 +19,4 @@ Editing the date can be done with the `touch` command, through either the `-d` (
 
 Note: As the defined date exceeds 6 months on either side, instead of the hour, the year is displayed instead!
 
-
+Finally, the exercise requires the file to be compressed with `tar`. Using the flags `-c` and `-f`, we can specify compression (as opposed to `-x`, extraction) and the targeted file.
