@@ -1,1 +1,11 @@
-The goal of this exercise is to combine two different tasks in one single command, without resorting to ; or &&. A neat workaround was to use the find command's built in -o flag, which allows for an OR operation, and to provide specific instructions for each listed query. Again, it's a matter of scouring the manual.
+An exercise I failed multiple times due to not paying close attention to the instructions.
+
+The rules to respect here are:
+- Find all **files** in the current directory and its subdirectories;
+- Match only the ones that start **and** end in `#`, and the ones that end in `~`;
+- **Show and erase** all of these files.
+
+With that in mind, we:
+- Use the `find` command with the `-type` parameter. and pass it `f` (to specify "files only");
+
+stub
