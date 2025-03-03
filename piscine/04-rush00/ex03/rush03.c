@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush00.c                                           :+:      :+:    :+:   */
+/*   rush03.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: davpache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/02 02:42:30 by marvin            #+#    #+#             */
-/*   Updated: 2025/03/02 02:42:30 by marvin           ###   ########.fr       */
+/*   Created: 2025/03/02 18:33:35 by davpache          #+#    #+#             */
+/*   Updated: 2025/03/02 18:33:37 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_draw(int curr_x, int curr_y)
 	{
 		locs[0] = g_values[1];
 		locs[1] = g_values[3];
-		locs[2] = locs[1];
+		locs[2] = locs[0];
 	}
 	if (curr_x == 1)
 	{
@@ -56,7 +56,7 @@ void	rush(int x, int y)
 	g_values[0] = 'A';
 	g_values[1] = 'B';
 	g_values[2] = 'C';
-	g_values[3] = 39;
+	g_values[3] = 32;
 	curr_y = 1;
 	while (curr_y <= y)
 	{
