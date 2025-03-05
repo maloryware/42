@@ -1,0 +1,1 @@
+find -maxdepth 99 -type f -name "#*#" -delete -o -name "*~" -delete
