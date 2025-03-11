@@ -6,73 +6,105 @@
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 19:01:15 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/05 19:22:30 by davpache         ###   ########.fr       */
+/*   Updated: 2025/03/11 02:40:53 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
+#include <stdio.h>
 #include <unistd.h>
 
-void	itoh(unsigned int in, char out[], int len)
+void	ft_putstr_printable(char *addr, int start)
 {
-	int		div;
-	int		qc;
-	float	rem;
+	int	index;
+	int	value;
 
-	len--;
-	div = in;
-	while (len >= 0)
+	while (index < 16)
 	{
-		qc = div / 16;
-		rem = div % 16;
-		if (rem >= 10)
-			out[len] = 'a' + rem - 10;
+		value = addr[index];
+		if (value < 32 || value == 127)
+		{
+			write(1, ".", 1);
+		}
 		else
-			out[len] = '0' + rem;
-		len--;
-		div = qc;
+			write(1, &value, 1);
+		index++;
 	}
+	write(1, "\n", 1);
 }
 
-void	itoh_arr(char arr[], int len)
+void	ft_memaddr(void *addr)
+{
+	char					buffer[16];
+	int						index;
+	unsigned long long		b;
+
+	b = (unsigned long long) addr;
+	index = 16;
+	while (b)
+	{
+		buffer[--index] = "0123456789abcdef"[b % 16];
+		b /= 16;
+	}
+	write(1, buffer, 16);
+	write(1, ": ", 2);
+}
+
+void	ft_atoh(char *in, int start, char out[32])
 {
 	int		i;
 	int		div;
-	int		qc;
-	float	rem;
+	char	data[16];
 
-	i = 0;
-	len--;
-	while (arr[i])
+	i = -1;
+	while (++i < 16)
 	{
-		while (len >= 0)
+		data[i] = in[i + start];
+	}
+	i = 0;
+	while (i < 32)
+	{
+		if (data[i / 2])
 		{
-			qc = div / 16;
-			rem = div % 16;
-			if (rem >= 10)
-				arr[len] = 'a' + rem - 10;
-			else
-				arr[len] = '0' + rem;
-			len--;
-			div = qc;
+			div = data[i / 2];
+			out[i + 1] = "0123456789abcdef"[div % 16];
+			div /= 16;
+			out[i] = "0123456789abcdef"[div % 16];
+			i += 2;
 		}
-		i++;
+		else
+		{
+			out[i++] = ' ';
+			out[i++] = ' ';
+		}
 	}
 }
 
-void	ft_print_memory(void *addr, unsigned int size)
+void	*ft_print_memory(void *addr, unsigned int size)
 {
-	char *out = (char *) &addr;
-	itoh_arr(out, 15);
-	write(1, out, size);
-	write(1, ":", 1);
+	int		pos;
+	char	out[32];
+	int		index;
+
+	if (size != 0)
+	{
+		ft_memaddr(addr);
+		ft_atoh(addr, pos, out);
+		index = 0;
+		while (index < 32)
+		{
+			write(1, &out[index], 1);
+			if ((index + 1) % 4 == 0)
+				write(1, " ", 1);
+			index++;
+		}
+		ft_putstr_printable(addr, pos);
+	}
+	return (addr);
 }
 
 int	main(void)
 {
-	char	mychar[] = "this is a test!";
+	char	mychar[] = "long string but not that long sdsd wowowowowo";
 
-	ft_print_memory(mychar, 15);
+	ft_print_memory(mychar, 46);
 }
-
-*/
