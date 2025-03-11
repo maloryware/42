@@ -1,47 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 22:25:47 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/11 02:46:58 by davpache         ###   ########.fr       */
+/*   Created: 2025/03/06 20:55:48 by davpache          #+#    #+#             */
+/*   Updated: 2025/03/10 15:21:22 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	itoh_2(unsigned int in, char out[2])
+char	*ft_strstr(char *str, char *to_find)
 {
-	int		i;
-	int		div;
+	int	count;
+	int	target_count;
+	int	len;
 
-	i = 2;
-	div = in;
-	while (i >= 0)
+	count = 0;
+	len = 0;
+	while (to_find[len])
+		len++;
+	if (len < 1)
+		return (str);
+	while (str[count])
 	{
-		out[--i] = "0123456789abcdef"[div % 16];
-		div /= 16;
-	}
-}
-
-void	ft_putstr_non_printable(char *str)
-{
-	int		i;
-	char	hex[2];
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] < 32)
+		target_count = 0;
+		while (str[count + target_count] == to_find[target_count])
 		{
-			write(1, "\\", 1);
-			itoh_2(str[i], hex);
-			write(1, &hex[0], 2);
+			if (target_count == len - 1)
+				return (str + count);
+			target_count++;
 		}
-		else
-			write(1, &str[i], 1);
-		i++;
+		count++;
 	}
+	return ("\0");
 }

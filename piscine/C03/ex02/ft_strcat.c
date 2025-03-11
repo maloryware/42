@@ -1,47 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 22:25:47 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/11 02:46:58 by davpache         ###   ########.fr       */
+/*   Created: 2025/03/05 20:17:51 by davpache          #+#    #+#             */
+/*   Updated: 2025/03/06 20:33:04 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	itoh_2(unsigned int in, char out[2])
+char	*ft_strcat(char *dest, char *src)
 {
-	int		i;
-	int		div;
+	unsigned int	dest_size;
+	unsigned int	j;
 
-	i = 2;
-	div = in;
-	while (i >= 0)
+	j = 0;
+	dest_size = 0;
+	while (dest[dest_size])
+		dest_size++;
+	while (src[j])
 	{
-		out[--i] = "0123456789abcdef"[div % 16];
-		div /= 16;
+		dest[dest_size++] = src[j++];
 	}
-}
-
-void	ft_putstr_non_printable(char *str)
-{
-	int		i;
-	char	hex[2];
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] < 32)
-		{
-			write(1, "\\", 1);
-			itoh_2(str[i], hex);
-			write(1, &hex[0], 2);
-		}
-		else
-			write(1, &str[i], 1);
-		i++;
-	}
+	dest[dest_size] = '\0';
+	return (dest);
 }
