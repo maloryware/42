@@ -1,1 +1,0 @@
-The elusive magic file. Obtained by reading through the manuals of file and magic. Using the parameters defined in man magic, this file can be compiled with, well, the file command, in order to obtain a special file capable of checking for specific information within any given file, and either specifying the file type as being that of "42 file", or the proper default value.  

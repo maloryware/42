@@ -6,13 +6,13 @@
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 22:25:47 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/11 02:46:58 by davpache         ###   ########.fr       */
+/*   Updated: 2025/03/13 12:54:44 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	itoh_2(unsigned int in, char out[2])
+void	itoh_2(unsigned int in, char *out)
 {
 	int		i;
 	int		div;
@@ -34,11 +34,11 @@ void	ft_putstr_non_printable(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] < 32)
+		if (str[i] < 32 || str[i] == 127)
 		{
 			write(1, "\\", 1);
 			itoh_2(str[i], hex);
-			write(1, &hex[0], 2);
+			write(1, &hex, 2);
 		}
 		else
 			write(1, &str[i], 1);
