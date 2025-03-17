@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 13:25:38 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/16 06:28:14 by davpache         ###   ########.fr       */
+/*   Created: 2025/03/16 06:29:11 by davpache          #+#    #+#             */
+/*   Updated: 2025/03/16 06:30:50 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	*ft_strdup(char *src)
+int	*ft_range(int min, int max)
 {
-	char	*out;
-	int		i;
+	int	*out;
+	int	i;
 
+	*out = 0;
 	i = 0;
-	while (src[i])
-		i++;
-	out = (char *) malloc(i + 1);
-	while (i >= 0)
+	while (min <= max)
 	{
-		out[i] = src[i];
-		i--;
+		out[i] = min;
+		min++;
+		i++;
 	}
 	return (out);
 }

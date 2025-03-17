@@ -6,7 +6,7 @@
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 22:25:47 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/13 12:54:44 by davpache         ###   ########.fr       */
+/*   Updated: 2025/03/17 12:35:56 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,9 @@ void	ft_putstr_non_printable(char *str)
 		i++;
 	}
 }
+
+/* int	main()
+{
+	ft_putstr_non_printable("Coucou\n\r\t\vtu vas bien ?");
+}
+ */

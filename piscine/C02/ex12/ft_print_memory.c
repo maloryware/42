@@ -6,11 +6,10 @@
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 19:01:15 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/13 12:54:41 by davpache         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:48:26 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 
 void	ft_putstr_printable(char *addr, int start, int size)
@@ -19,7 +18,7 @@ void	ft_putstr_printable(char *addr, int start, int size)
 	int	value;
 
 	index = 0;
-	while (index < 16 && index + start <= size)
+	while (index < 16 && index + start < size)
 	{
 		value = addr[index + start];
 		if (value < 32 || value == 127)
@@ -54,20 +53,20 @@ void	ft_memaddr(void *addr)
 	write(1, ": ", 2);
 }
 
-void	ft_atoh(char *in, int start, char out[32])
+void	ft_atoh(char *in, int start, char out[32], int flag)
 {
 	int		i;
 	char	data[16];
 
 	i = -1;
 	while (++i < 16)
-	{
 		data[i] = in[i + start];
-	}
 	i = 0;
-	while (i < 32)
+	while (i <= 32)
 	{
-		if (data[(i / 2)] && (data[i / 2] >= 32))
+		if (!data[i / 2])
+			flag = 1;
+		if (data[i / 2] && (data[i / 2] >= 32 && data[i / 2] < 127) && !flag)
 		{
 			out[i + 1] = "0123456789abcdef"[data[i / 2] % 16];
 			out[i] = "0123456789abcdef"[data[i / 2] / 16 % 16];
@@ -85,9 +84,11 @@ void	ft_output(void *addr, int size, int pos)
 {
 	char	out[32];
 	int		index;
+	int		flag;
 
+	flag = 0;
 	ft_memaddr(addr + pos);
-	ft_atoh(addr, pos, out);
+	ft_atoh(addr, pos, out, flag);
 	index = -1;
 	while (++index < 32)
 	{
@@ -113,3 +114,13 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	}
 	return (addr);
 }
+
+/* 
+int	main(void)
+{
+	char	*test = "Hate. Let me tell you how much I've come to hate you(...)";
+
+	ft_print_memory(test, 58);
+}
+
+ */

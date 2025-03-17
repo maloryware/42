@@ -6,7 +6,7 @@
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 18:23:17 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/04 18:23:40 by davpache         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:50:07 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_str_is_printable(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] < 32)
+		if (str[i] < 32 || str[i] == 127)
 			return (0);
 		i++;
 	}
