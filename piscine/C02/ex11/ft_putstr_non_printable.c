@@ -6,10 +6,11 @@
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 22:25:47 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/17 12:35:56 by davpache         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:36:13 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <unistd.h>
 
 void	itoh_2(unsigned int in, char *out)
@@ -48,6 +49,15 @@ void	ft_putstr_non_printable(char *str)
 
 /* int	main()
 {
-	ft_putstr_non_printable("Coucou\n\r\t\vtu vas bien ?");
+	int		i;
+	char	arr[127];
+
+	i = 1;
+	while (i <= 127)
+	{
+		arr[i - 1] = (char) i;
+		i++;
+	}
+	ft_putstr_non_printable(arr);
 }
  */

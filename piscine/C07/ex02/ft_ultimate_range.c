@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/16 06:29:11 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/18 18:43:52 by davpache         ###   ########.fr       */
+/*   Created: 2025/03/17 17:00:55 by davpache          #+#    #+#             */
+/*   Updated: 2025/03/18 19:21:01 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-int	*ft_range(int min, int max)
+int	ft_ultimate_range(int **range, int min, int max)
 {
-	int		*out;
 	int		i;
+	int		*arrval;
 
 	if (min >= max)
+	{
+		*range = 0;
 		return (0);
-	out = (int *)malloc(max - min);
+	}
+	arrval = (int *)malloc(max - min);
 	i = 0;
 	while (min < max)
 	{
-		out[i] = min;
+		arrval[i] = min;
 		min++;
 		i++;
 	}
-	return (out);
+	*range = arrval;
+	return (i);
 }

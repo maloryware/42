@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/16 06:29:11 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/18 18:43:52 by davpache         ###   ########.fr       */
+/*   Created: 2025/03/18 19:22:04 by davpache          #+#    #+#             */
+/*   Updated: 2025/03/18 19:22:05 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-int	*ft_range(int min, int max)
+char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	int		*out;
-	int		i;
+	char	*out;
 
-	if (min >= max)
-		return (0);
-	out = (int *)malloc(max - min);
-	i = 0;
-	while (min < max)
-	{
-		out[i] = min;
-		min++;
-		i++;
-	}
 	return (out);
 }

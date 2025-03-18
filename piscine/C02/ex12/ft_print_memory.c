@@ -6,19 +6,19 @@
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 19:01:15 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/17 16:48:26 by davpache         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:55:49 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr_printable(char *addr, int start, int size)
+void	ft_putstr_printable(char *addr, int start)
 {
 	int	index;
 	int	value;
 
 	index = 0;
-	while (index < 16 && index + start < size)
+	while (index < 16 && (addr[index + start - 1] || !start))
 	{
 		value = addr[index + start];
 		if (value < 32 || value == 127)
@@ -64,9 +64,7 @@ void	ft_atoh(char *in, int start, char out[32], int flag)
 	i = 0;
 	while (i <= 32)
 	{
-		if (!data[i / 2])
-			flag = 1;
-		if (data[i / 2] && (data[i / 2] >= 32 && data[i / 2] < 127) && !flag)
+		if (!flag)
 		{
 			out[i + 1] = "0123456789abcdef"[data[i / 2] % 16];
 			out[i] = "0123456789abcdef"[data[i / 2] / 16 % 16];
@@ -77,18 +75,18 @@ void	ft_atoh(char *in, int start, char out[32], int flag)
 			out[i++] = ' ';
 			out[i++] = ' ';
 		}
+		if (!data[(i - 2) / 2])
+			flag = 1;
 	}
 }
 
-void	ft_output(void *addr, int size, int pos)
+void	ft_output(void *addr, int pos)
 {
 	char	out[32];
 	int		index;
-	int		flag;
 
-	flag = 0;
 	ft_memaddr(addr + pos);
-	ft_atoh(addr, pos, out, flag);
+	ft_atoh(addr, pos, out, 0);
 	index = -1;
 	while (++index < 32)
 	{
@@ -96,7 +94,7 @@ void	ft_output(void *addr, int size, int pos)
 		if ((index + 1) % 4 == 0)
 			write(1, " ", 1);
 	}
-	ft_putstr_printable(addr, pos, size);
+	ft_putstr_printable(addr, pos);
 }
 
 void	*ft_print_memory(void *addr, unsigned int size)
@@ -108,19 +106,16 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		pos = 0;
 		while (pos < (int) size)
 		{
-			ft_output(addr, size, pos);
+			ft_output(addr, pos);
 			pos += 16;
 		}
 	}
 	return (addr);
 }
 
-/* 
-int	main(void)
+/*int	main(void)
 {
 	char	*test = "Hate. Let me tell you how much I've come to hate you(...)";
 
 	ft_print_memory(test, 58);
-}
-
- */
+}*/

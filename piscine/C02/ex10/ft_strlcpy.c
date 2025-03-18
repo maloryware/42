@@ -6,7 +6,7 @@
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 20:58:39 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/14 08:44:43 by davpache         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:36:32 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 
 	i = 0;
 	strlen = 0;
-	while (src[strlen++])
-		;
-	if (src[strlen - 1] == '\0')
+	while (src[strlen])
+		strlen++;
+	if (src[strlen] == '\0')
 	{
 		while (i < size - 1)
 		{
@@ -30,5 +30,5 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 			dest[i] = '\0';
 		i = 0;
 	}
-	return (strlen - 1);
+	return (strlen);
 }
