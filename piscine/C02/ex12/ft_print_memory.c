@@ -6,7 +6,7 @@
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 19:01:15 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/17 17:55:49 by davpache         ###   ########.fr       */
+/*   Updated: 2025/03/20 17:46:11 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,11 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	}
 	return (addr);
 }
-
-/*int	main(void)
+/* 
+int	main(void)
 {
 	char	*test = "Hate. Let me tell you how much I've come to hate you(...)";
 
 	ft_print_memory(test, 58);
-}*/
+}
+ */

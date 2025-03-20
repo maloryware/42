@@ -6,7 +6,7 @@
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 13:25:38 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/16 06:28:14 by davpache         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:00:22 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strdup(char *src)
 	i = 0;
 	while (src[i])
 		i++;
-	out = (char *) malloc(i + 1);
+	out = (char *) malloc(sizeof(out) * (i + 1));
 	while (i >= 0)
 	{
 		out[i] = src[i];

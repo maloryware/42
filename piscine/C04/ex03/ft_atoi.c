@@ -6,10 +6,11 @@
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 02:56:08 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/12 05:06:04 by davpache         ###   ########.fr       */
+/*   Updated: 2025/03/20 17:18:00 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <unistd.h>
 
 int	count_minus(char *str)
@@ -56,7 +57,8 @@ int	ft_startpos(char *str)
 		}
 		else
 		{
-			if (str[i] != ' ' && str[i] != '+' && str[i] != '-')
+			if (str[i] != ' ' && str[i] != '+' && str[i] != '-'
+				&& !(str[i] >= 9 && str[i] <= 13))
 				return (9999);
 		}
 		i++;

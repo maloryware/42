@@ -6,38 +6,38 @@
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 08:51:47 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/12 08:55:41 by davpache         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:17:52 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	compare_strings(char *string_a, char *str_b)
+int	ft_strcmp(char *a, char *b)
 {
-	while (*string_a && *string_a == *str_b)
+	while (*a && *a == *b)
 	{
-		string_a++;
-		str_b++;
+		a++;
+		b++;
 	}
-	return (*string_a - *str_b);
+	return (*a - *b);
 }
 
-void	ft_wout(int argc, char **argv)
+void	write_args(int argc, char **argv)
 {
+	int	arg;
 	int	i;
-	int	j;
 
-	i = 1;
-	while (i < argc)
+	arg = 1;
+	while (arg < argc)
 	{
-		j = 0;
-		while (argv[i][j])
+		i = 0;
+		while (argv[arg][i])
 		{
-			write(1, &argv[i][j], 1);
-			j++;
+			write(1, &argv[arg][i], 1);
+			i++;
 		}
 		write(1, "\n", 1);
-		i++;
+		arg++;
 	}
 }
 
@@ -49,7 +49,7 @@ int	main(int argc, char **argv)
 	i = 1;
 	while (i < (argc - 1))
 	{
-		if (compare_strings(argv[i], argv[i + 1]) > 0)
+		if (ft_strcmp(argv[i], argv[i + 1]) > 0)
 		{
 			temp = argv[i];
 			argv[i] = argv[i + 1];
@@ -59,6 +59,6 @@ int	main(int argc, char **argv)
 		}
 		i++;
 	}
-	ft_wout(argc, argv);
+	write_args(argc, argv);
 	return (0);
 }

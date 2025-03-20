@@ -6,13 +6,9 @@
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 08:14:18 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/12 08:21:53 by davpache         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:23:31 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/* this MUST be what they expect us to do, 
- * right?? right??????????
- */
 
 int	ft_is_prime(int nb)
 {

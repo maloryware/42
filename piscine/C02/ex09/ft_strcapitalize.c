@@ -6,7 +6,7 @@
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 18:33:40 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/04 20:58:04 by davpache         ###   ########.fr       */
+/*   Updated: 2025/03/20 17:45:46 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,23 @@ void	ft_setchar(int i, int last, char *str)
 
 char	*ft_strcapitalize(char *str)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (str[i])
 	{
-		if (i == 0)
-		{
-			if (str[i] >= 'a' && str[i] <= 'z')
-				str[i] -= 32;
-		}
-		else
+		if (i == 0 && str[i] >= 'a' && str[i] <= 'z')
+			str[i] = str[i] - 32;
+		else if (i > 0)
 			ft_setchar(i, i - 1, str);
 		i++;
 	}
 	return (str);
 }
+
+/*int	main(void)
+{
+	char	out[] = "tHis is a verY LONGWIn123dDED str-in gGWI44T2H ..";
+
+	printf("%s\n", ft_strcapitalize(out));
+}*/

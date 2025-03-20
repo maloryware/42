@@ -6,7 +6,7 @@
 /*   By: davpache <davpache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 05:08:49 by davpache          #+#    #+#             */
-/*   Updated: 2025/03/12 05:58:40 by davpache         ###   ########.fr       */
+/*   Updated: 2025/03/20 13:36:35 by davpache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,27 @@ void	revout(char *str, int size)
 
 int	flag_invalid(char *str, int *nb)
 {
-	int	i;
-	int	j;
+	int	index;
+	int	next;
 
 	if (*nb < 0)
 	{
 		*nb = -*nb;
 		write(1, "-", 1);
 	}
-	i = 0;
-	while (str[i])
+	index = 0;
+	while (str[index])
 	{
-		if (str[i] == '+' || str[i] == '-')
+		if (str[index] == '+' || str[index] == '-')
 			return (1);
-		j = i + 1;
-		while (str[j])
+		next = index + 1;
+		while (str[next])
 		{
-			if (str[i] == str[j])
+			if (str[index] == str[next])
 				return (1);
-			j++;
+			next++;
 		}
-		i++;
+		index++;
 	}
 	return (0);
 }
@@ -51,7 +51,7 @@ void	ft_putnbr_base(int nb, char *base)
 {
 	int		i;
 	int		len;
-	char	out[512];
+	char	out[1024];
 
 	len = 0;
 	while (base[len])
